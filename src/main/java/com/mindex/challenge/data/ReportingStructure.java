@@ -12,45 +12,21 @@ public class ReportingStructure {
     //and calculate numberOfReports from there
     public ReportingStructure(Employee employee) {
         this.employee = employee;
-        if(employee.getDirectReports() == null){
-            numberOfReports = 0;
-        }
-        else{
-            numberOfReports = employee.getDirectReports().size();
-        }
     }
 
-//    private int findNumberOfReports(List<Employee> directReports) {
-//        //return 0 if no one reports to this employee
-//        if(directReports == null){
-//            return 0;
-//        }
-//        List<Employee> uniqueList = new List<Employee>() {
-//        }
-//        for (:
-//             ) {
-//
-//        }
-//    }
-//    private ArrayList retrieveAllBelowEmployee(Employee employee){
-//        ArrayList masterList = new ArrayList();
-//        if(employee.getDirectReports() == null){
-//            return new ArrayList();
-//        }
-//        else{
-//            masterList.add(employee.getDirectReports());
-//            for (Employee emp: masterList) {
-//                String id = emp.getEmployeeId();
-//
-//
-//            }
-//        }
-//    }
     //getter methods, probably won't need them delete later if so.
     public Employee getEmployee() {
         return employee;
     }
     public int getNumberOfReports(){
         return numberOfReports;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public void setNumberOfReports(int numberOfReports) {
+        this.numberOfReports = numberOfReports;
     }
 }
