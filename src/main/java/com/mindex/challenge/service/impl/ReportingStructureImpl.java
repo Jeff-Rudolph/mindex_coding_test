@@ -22,7 +22,7 @@ public class ReportingStructureImpl implements ReportingStructureService {
     private EmployeeRepository employeeRepository;
 
     @Override
-    public int read(String id){
+    public ReportingStructure read(String id){
         //changed log message a little for my sake during debugging
         LOG.debug("Creating Employee object with id [{}]",id);
 
@@ -32,14 +32,14 @@ public class ReportingStructureImpl implements ReportingStructureService {
         LOG.debug("Creating ReportingStructure object");
 
         //instantiate the root node of our Tree-like data structure
-        //NOTE this is all really just a placeholder here to make sure I was able to print something to the browser
-        ReportingStructure reportingStructure = new ReportingStructure(employee);
+        ReportingStructure reportingStructure = new ReportingStructure();
+
+        reportingStructure.setEmployee(employee);
+
         int numberUniqueSubEmployees = getNumberUniqueEmployeeIDs(getAllSubEmployees(reportingStructure.getEmployee().getEmployeeId()));
         reportingStructure.setNumberOfReports(numberUniqueSubEmployees);
-        //return getAllSubEmployees(reportingStructure.getEmployee()).size();
-        //return employee.getDirectReports().size();
 
-        return reportingStructure.getNumberOfReports();
+        return reportingStructure;
 
     }
 
@@ -47,14 +47,16 @@ public class ReportingStructureImpl implements ReportingStructureService {
     //then go through each child Employee, add to list then call method on said node.
     //Recursion stops when the function reaches leaf nodes (directReportList == null)
     private ArrayList<String> getAllSubEmployees(String id){
+        //pull all employee info from the database each time
         Employee employee = employeeRepository.findByEmployeeId(id);
         ArrayList<String> children = new ArrayList<>();
         List<Employee> directReportList = employee.getDirectReports();
         if(directReportList == null){
-            return children;
+            return children; //return empty list if no direct reports
        }
         for(Employee e: directReportList) {
             children.add(e.getEmployeeId());
+            //recursive call
             children.addAll(getAllSubEmployees(e.getEmployeeId()));
         }
         return children;

@@ -10,8 +10,7 @@ public class ReportingStructure {
 
     //reporting structure always starts from a given employee so will take an Employee as input
     //and calculate numberOfReports from there
-    public ReportingStructure(Employee employee) {
-        this.employee = employee;
+    public ReportingStructure() {
     }
 
     //getter methods, probably won't need them delete later if so.

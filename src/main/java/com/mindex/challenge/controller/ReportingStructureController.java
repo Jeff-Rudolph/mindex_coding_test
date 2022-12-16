@@ -22,7 +22,7 @@ public class ReportingStructureController {
     //passing id from url into method from reportingStructureService where it will be used to lookup and instantiate
     //Employee object.
     @GetMapping("/reportingstructure/{id}")
-    public int read(@PathVariable String id){
+    public ReportingStructure read(@PathVariable String id){
         LOG.debug("Received create request for Employee object creation for id [{}]", id);
 
         return reportingStructureService.read(id);
