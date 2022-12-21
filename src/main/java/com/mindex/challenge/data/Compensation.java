@@ -1,11 +1,17 @@
 package com.mindex.challenge.data;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDate;
 public class Compensation {
-    private Employee employee;
+    //data fields from requirements
+    private Employee employee; //this will be the primary key for our db as it is unique
     private int salary;
+    //Formatting the LocalDate to be able to come into the Post request in the following pattern as a String
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate effectiveDate;
 
+    //empty constructor
     public Compensation(){
 
     }
@@ -30,8 +36,9 @@ public class Compensation {
         this.salary = salary;
     }
 
-    public void setDate(int year, int month, int day) {
-        this.effectiveDate = LocalDate.of(year, month, day);
+    //won't really need this for this assignment but think this would be the right way to do it
+    public void setDate(String dateString) {
+        this.effectiveDate = LocalDate.parse(dateString);
 
     }
 }

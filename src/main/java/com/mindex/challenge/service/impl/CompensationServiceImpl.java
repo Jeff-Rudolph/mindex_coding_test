@@ -21,7 +21,7 @@ public class CompensationServiceImpl implements CompensationService {
     public Compensation read(String id) {
         LOG.debug("Creating Compensation Object for Employee with employeeId [{}]", id);
 
-        Compensation compensation = compensationRepository.findByEmployeeEmployeeID(id);
+        Compensation compensation = compensationRepository.findByEmployeeEmployeeId(id);
 
         if(compensation == null){
             throw new RuntimeException("Invalid Employee ID: " + id);

@@ -5,15 +5,13 @@ import java.util.List;
 
 public class ReportingStructure {
     //two fields that were stipulated in requirements
-    private Employee employee;
-    private int numberOfReports;
+    private Employee employee; //root of the tree structure
+    private int numberOfReports; //will be calculated by methods
 
-    //reporting structure always starts from a given employee so will take an Employee as input
-    //and calculate numberOfReports from there
+    //empty constructor
     public ReportingStructure() {
     }
 
-    //getter methods, probably won't need them delete later if so.
     public Employee getEmployee() {
         return employee;
     }
@@ -21,6 +19,7 @@ public class ReportingStructure {
         return numberOfReports;
     }
 
+    //not deep copy but won't matter for this case
     public void setEmployee(Employee employee) {
         this.employee = employee;
     }
