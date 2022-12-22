@@ -1,6 +1,7 @@
 package com.mindex.challenge.data;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.time.LocalDate;
 public class Compensation {
@@ -36,8 +37,8 @@ public class Compensation {
         this.salary = salary;
     }
 
-    //won't really need this for this assignment but think this would be the right way to do it
-    public void setDate(String dateString) {
+
+    public void setEffectiveDate(String dateString) {
         this.effectiveDate = LocalDate.parse(dateString);
 
     }

@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class ReportingStructureController {
     private static final Logger LOG = LoggerFactory.getLogger(ReportingStructureController.class);
 
-    //automatically injecting singleton instance of service,
-    //don't have to instantiate ReportingStructureService obj. with "new"
+    //automatically injecting singleton instance of service
     @Autowired
     private ReportingStructureService reportingStructureService;
 

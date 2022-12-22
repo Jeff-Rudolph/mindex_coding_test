@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CompensationServiceImpl implements CompensationService {
 
-    private static final Logger LOG = LoggerFactory.getLogger(EmployeeServiceImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CompensationServiceImpl.class);
 
 
     @Autowired
